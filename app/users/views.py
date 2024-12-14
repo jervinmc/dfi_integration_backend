@@ -38,6 +38,7 @@ class UserView(viewsets.ModelViewSet):
 class Login(generics.GenericAPIView):
     def post(self,request,format=None):
         try:
+            print('okay')
             res = request.data
             items = User.objects.filter(email=res.get('email'),password=res.get('password')).count()
             if(items>0):
